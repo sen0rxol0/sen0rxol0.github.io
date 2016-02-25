@@ -8,7 +8,7 @@
 
             var $href = $anchorLink.eq(i).attr("href");
 
-            if ( $href === window.location.pathname ) {
+            if ( $href === window.location.href ) {
 
                     $("a.active_page").removeClass("active_page");
 
