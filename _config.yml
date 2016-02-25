@@ -16,7 +16,7 @@ github_username:  sen0rxol0
 #paginate_path: "/:path/page:num"
 
 excerpt_separator: <!--excerptor-->
-permalink: /:title/
+permalink: /:path/:title/
 
 
 # Gems
