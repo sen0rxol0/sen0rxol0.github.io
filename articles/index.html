@@ -12,8 +12,8 @@ layout: main
     <div class="article_excerpt">
         {{ post.excerpt }}
     </div>
-     <span class="read_more"><a href="{{ site.baseurl }}{{ post.url }}">Read More</a>
-    <svg class="arrow_forward"><use xlink:href="{{ site.baseurl }}/assets/img/icon-sprite.svg#arrow-right-icon"/></svg></span>    
+     <span class="read_more"><a href="{{ site.url }}{{ post.url }}">Read More</a>
+    <svg class="arrow_forward"><use xlink:href="{{ site.url }}/assets/img/icon-sprite.svg#arrow-right-icon"/></svg></span>    
 </article>
     {% endfor %}
 </div>
