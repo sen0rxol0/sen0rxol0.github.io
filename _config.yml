@@ -10,18 +10,9 @@ github_username:  sen0rxol0
 
 
 # Build settings
-
-#paginate: 4
-#paginate_file: archives.html
-#paginate_path: "/:path/page:num"
-
 excerpt_separator: <!--excerptor-->
-permalink: /:path/:title/
-
 
 # Gems
-
-#gems: [ jekyll-paginate ]
 
 # Exclude/Include folders/files from Conversion
 include: ["assets"]
