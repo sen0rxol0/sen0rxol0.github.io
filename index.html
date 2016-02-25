@@ -1,0 +1,28 @@
+---
+layout: main
+---
+
+<main class="posts_main_container">
+    {% for post in site.posts limit:2 %}
+    <article class="main_article">
+        <header class="post_header">
+        <h1>{% if forloop.last %} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title}}</a>
+            {% else %} {{ post.title}} {% endif%}
+            </h1>
+        <time datetime="{{post.date}}">Posted on &#9679; {{ post.date | date: "%B %-d, %Y" }}</time>
+        </header>
+       
+        <section class="main_section">    
+        {% if forloop.first %} {{ post.content }}
+        {% else %} {{ post.excerpt }} 
+            <span id="read_more"><a href="{{ site.baseurl }}{{ post.url }}">Continue reading...</a></span>
+        {% endif %}
+        </section>
+    </article>
+    {% endfor %}
+    {% if site.posts.size > 2 %}
+    <div id="see_articles">
+        <p><a href="{{ site.baseurl }}/articles/index.html">see all articles</a></p>
+    </div>
+    {% endif %}
+</main>

@@ -1,0 +1,18 @@
+---
+layout: main
+---
+
+<main class="posts_main_container">
+<article class="main_article">
+    <header class="post_header">
+    <h1>{{ page.title}}</h1>
+    <time datetime="{{page.date}}">Published &#9679; {{ page.date | date: "%B %-d, %Y" }}</time>
+    </header>
+    <section class="main_section">    
+        {{ content }}
+    </section>
+</article>
+<div id="see_articles">
+    <p><a href="{{ site.baseurl }}/articles/index.html">go back to articles</a></p>
+</div>
+</main>

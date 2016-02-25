@@ -1,0 +1,667 @@
+@charset "UTF-8";
+
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #fafafa;
+}
+
+
+
+
+/*
+=============
+MAIN-HEADER
+=============
+*/
+
+
+#main_header {
+    width: 200px;
+    height: 100%;
+    color: #07585F;
+    background-color: rgba(0,102,102, 0.6);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.header_wrap {
+    width: 100%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+#header_logo {
+    width: 60px;
+    height: 60px;
+    margin: 30px auto;
+    padding: 0;
+    flex: 0.8 1;
+    align-self: flex-start;
+}
+
+#header_logo img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+
+/*
+--------
+Quotes
+--------
+*/
+
+#header_quote {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+    word-spacing: 1.5px;
+    flex: 0.6 1;
+
+}
+
+#header_quote h3 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1em;
+    font-style: italic;
+    text-align: center;
+     
+    
+}
+
+#header_quote h3 span {
+    font-weight: 300;
+    font-size: 0.9em;
+    word-spacing: normal;
+    
+}
+
+
+
+/*
+-----
+Nav
+-----
+*/
+
+nav {
+    width: 100%;
+    margin: 100px auto;
+    padding; 0;
+    flex: 2.5 1;
+    align-self: center;
+}
+
+nav ul {
+    width: 90%;
+    margin: 0;
+    margin-left: 10%;
+    padding: 0;
+    list-style-type: none;
+    display: block;
+
+}
+
+nav li {
+    margin: 0 0 10px;
+    padding: 5px;
+    font-weight: 500;
+    font-size: 0.8em;
+    text-align: right;
+    text-transform: capitalize;
+}
+
+nav li:last-child {
+    margin-bottom: 0;
+    text-transform: lowercase;
+    
+}
+
+nav li a {
+    padding: inherit;
+    text-decoration: none;
+    color: #fafafa;
+    position: relative;
+    transition: all 0.35s ease-in-out;
+   
+}
+
+nav li a::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #fafafa;
+    transform: scale(0, 1);
+    transition: all 0.35s ease-in-out;
+}
+
+nav li a:hover,
+nav li a:active {
+    margin-right: 5px;
+    color: #07585F;
+}
+
+nav li a:hover::after {
+   transform: scale(1, 1);
+}
+
+nav .active_page {
+    margin-right: 5px;
+    color: #07585F;
+}
+
+
+/*
+--------
+Footer
+--------
+*/
+
+#footer_container {
+     width: 100%;
+     margin: 0 auto;
+     flex: 1.2 1;
+     align-self: flex-end;
+}
+
+#footer_container .menu_icon {
+    display : none;
+}
+
+.footer_links ul {
+    width: 90%;
+    margin: auto;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  
+}
+
+.footer_links ul li {
+    list-style-type: none;
+    margin: auto;
+    align-self: baseline;
+ 
+  
+}
+
+.icon {
+    width: 30px;
+    height: 25px;
+    fill: #07585F;
+    transition: fill 0.35s ease-in-out;
+    
+}
+
+li:nth-child(3) .icon{
+    width: 30px;
+    padding-top: 2px;
+    
+}
+
+.footer_links .icon:hover {
+    fill: #fafafa;  
+    
+}
+
+
+p#rights {
+    width: 80%;
+    margin: 25px auto;
+    padding: 0;
+    font-weight: 300;
+    font-size: 0.75em;
+    text-align: center;
+    box-sizing: content-box;
+    
+}
+
+
+
+
+
+
+/*
+============
+MAIN/BLOG
+============
+*/
+
+.posts_main_container {
+    width: 55%;
+    margin-left: 25%;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #0d0d0d;
+    
+}
+
+.main_article {
+    margin-top: 150px;
+    
+}
+
+.post_header {
+    margin-bottom: 20px;
+    font-family: 'Droid Serif',  "Palatino Linotype", "Book Antiqua", serif;
+}
+
+.post_header h1 {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    text-align: left;
+    
+}
+
+.post_header a {
+    padding-bottom: 2px;
+    text-decoration: none;
+    color: inherit;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.post_header a:hover,
+.post_header a:active {
+    color: #07585F;
+}
+
+.post_header time {
+    font-weight: 300;
+    font-size: 0.75em;
+    font-style: italic;
+    text-align: right;
+    
+}
+
+.main_section {
+    
+}
+
+.main_section p {
+    margin: 30px auto;
+    font-weight: 400;
+    font-size: 0.95em;
+    text-align: left;
+   
+}
+
+.main_section p + p {
+    text-indent: 2%;
+}
+
+#read_more {
+    font-weight: 300;
+    font-size: 0.8em;
+    text-align: right;
+    display: block;
+    
+}
+
+#read_more a {
+    padding: 5px;
+    text-decoration: none;
+    color: #07585F;
+    border-bottom: 1px dotted #07585F;
+    border-radius: 2px;
+    -webkit-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+}
+
+#read_more a:hover,
+#read_more a:active {
+    border: none;
+    color: #fafafa;
+    background-color: #07585F;
+}
+
+#see_articles {
+    width: 20%;
+    margin: 100px auto;
+    text-align: center;
+    
+}
+
+#see_articles a {
+    padding: 5px 10px;
+    font-size: 0.8em;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #07585F;
+    border: 2px solid #07585F;
+    border-radius: 2px;
+    display: block;
+    -webkit-transition: all 0.35s ease-in;
+    transition: all 0.35s ease-in;
+    
+  
+}
+
+#see_articles a:hover {
+    color: #fafafa;
+    background-color: #07585F;
+   
+}
+
+#see_articles a:active {
+    color: #fafafa;
+    background-color: #07585F;
+    font-size: 0.75em;
+
+}
+
+
+
+
+
+/*
+===============
+ARTICLES-PAGE
+===============
+*/
+
+
+#articles_wrapper {
+    margin: 15% auto 5%;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-align-content: space-between;
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
+    
+}
+.articles_list {
+    margin: 0 1% 10%;
+    border-radius: 4px;
+    background-color: #fdfdfd;
+    box-shadow: 1px 1px 6px -2.5px rgba(13, 13, 13, 0.2), -1px 0 6px -2.5px rgba(13, 13, 13, 0.2);
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 35%;
+    -ms-flex: 1 1 35%;
+        flex: 1 1 35%;
+    position: relative;
+    overflow: hidden;
+   
+}
+
+.article_header {
+    padding: 0 15px; 
+    margin-bottom: 20px;
+    font-family: 'Droid Serif',  "Palatino Linotype", "Book Antiqua", serif;
+}
+
+.article_header h1 {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    text-align: right;
+}
+
+.article_header time {
+    font-weight: 300;
+    font-size: 0.75em;
+    font-style: italic;
+}
+
+.article_excerpt {
+    margin: 0;
+    padding: auto 15px;
+   
+}
+
+.article_excerpt p {
+    padding: 0 15px 15px;
+    font-size: 0.85em;
+    text-align: left;
+}
+
+.read_more {
+    font-weight: 300;
+    font-size: 0.8em;
+    text-align: center;
+    background-color: rgba(0,102,102, 0.4);
+    display: block;
+    position: absolute;
+    top: 60%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transform: translateY(100%) scale( 0.5);
+        transform: translateY(100%) scale(0.5);
+    -webkit-transition: all 0.25s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
+    
+}
+
+.read_more a {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 15% 0 50%;
+    text-decoration: none;
+    color: #07585F;
+    display: inline-block;
+}
+
+.read_more a:hover,
+.read_more a:active { 
+    color: #fafafa;
+    background-color: rgba(0,102,102, 0.6);
+}
+
+.read_more .arrow_forward {
+    width: 30px;
+    height: 30px;
+    fill: #fafafa;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    display: none;
+
+}
+
+.read_more:hover .arrow_forward,
+.read_more:active .arrow_forward {
+    display: block;
+}
+
+.articles_list:hover .read_more {
+    -webkit-transform: translateY(0%) scale(1);
+        transform: translateY(0%) scale(1);
+}
+
+
+/*
+========
+ABOUT
+========
+*/
+
+#about_main {
+    width: 50%;
+    margin: 10% auto;
+    font-size: 1rem;
+}
+
+#mephoto {
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+    float: right;
+    position: relative;
+}
+
+#mephoto:hover p {
+    transform: translateX(0%);
+    
+}
+
+#mephoto span {
+    width: 180px;
+    height: 180px;
+    margin: 0;
+    overflow: hidden;
+    display: block;
+    position: relative;
+}
+
+#mephoto img {
+    width: 120%;
+    height: 110%;
+    position: absolute;
+    right: 0;
+    
+}
+
+#mephoto p {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    font-weight: 300;
+    font-size: 0.8em;
+    font-style: italic;
+    text-align: center;
+    color: rgba(250, 250, 250, 0.8);
+    background-color: rgba(7, 88, 95, 0.2);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all 0.35s ease-in;
+    
+   
+}
+
+.about_me h3 {
+    margin: 0;
+    margin-right: 190px;
+    padding-top: 160px;
+    font-weight: 400;
+    text-align: right;
+
+}
+
+.me_desc {
+    margin: 20px 0 0 0;
+    text-align: left;
+}
+
+.about_me p {
+    font-size: 0.95em;
+     text-indent: 2%;
+}
+
+.about_me hr {
+    margin: 30px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+# Site settings
+
+title: "sen0rxol0's blog"
+description: "sen0rxol0's Personal Blog"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://sen0rxol0.github.io" # the base hostname & protocol for your site
+email_address: waltva.senpai@gmail.com
+twitter_username: sen0rxol0
+github_username:  sen0rxol0
+
+
+# Build settings
+
+#paginate: 4
+#paginate_file: archives.html
+#paginate_path: "/:path/page:num"
+
+excerpt_separator: <!--excerptor-->
+#permalink: /:path/:title/
+
+
+# Gems
+
+#gems: [ jekyll-paginate ]
+
+# Exclude/Include folders/files from Conversion
+include: ["assets"]
+
+exclude: ["gulpfile.js", "node_modules", "package.json", "npm-debug.log", "Gemfile", "Gemfile.lock"]
