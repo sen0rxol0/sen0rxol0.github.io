@@ -7,11 +7,16 @@ layout: main
 <article class="articles_list">
     <header class="article_header">
         <h1>{{ post.title}}</h1>
+        {% if post.thumbnail %}
+        <span><img src="{{post.thumbnail}}"></span>
+        {% endif %}
         <time datetime="{{post.date}}">Posted on &#9679; {{ post.date | date: "%B %-d, %Y" }}</time>
     </header>
+    {% unless post.thumbnail %}
     <div class="article_excerpt">
         {{ post.excerpt }}
     </div>
+    {% endunless %}
      <span class="read_more"><a href="{{ site.url }}{{ post.url }}">Read More</a>
     <svg class="arrow_forward"><use xlink:href="{{ site.url }}/assets/img/icon-sprite.svg#arrow-right-icon"/></svg></span>    
 </article>

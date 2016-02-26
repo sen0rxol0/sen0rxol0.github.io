@@ -8,7 +8,7 @@
 
             var $href = $anchorLink.eq(i).attr("href");
 
-            if ( $href === window.location.href ) {
+            if ( $href === window.location.pathname ) {
 
                     $("a.active_page").removeClass("active_page");
 
@@ -34,7 +34,8 @@
             $contactLinks = $(".footer_links"),
             $siteNav      = $("#site_nav"),
             $mainArticle  = $(".main_article"),
-            $articlesWrap = $("#articles_wrapper");
+            $articlesWrap = $("#articles_wrapper"),
+            $aboutArticle = $("#about_article");
     
         
         $menuIcon.on("click", function() {
@@ -43,10 +44,12 @@
             $contactLinks.toggleClass("menu_active");
             $siteNav.toggleClass("menu_active");
             
-            if ( $( document ).width() <= 520 ) {
+            if ( $(document).width() <= 520 ) {
                 
                 $mainArticle.toggleClass("menu_active");
                 $articlesWrap.toggleClass("menu_active");
+                $aboutArticle.toggleClass("menu_active");
+                
 
             }
             
@@ -59,7 +62,7 @@
         
         var $mainHeader = $("#main_header");
         
-        var $windowScroll = $( window );
+        var $windowScroll = $(window);
         
         $(window).on("scroll", function() {
             

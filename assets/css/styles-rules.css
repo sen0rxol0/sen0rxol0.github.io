@@ -259,6 +259,28 @@ Media Query/Rules
       margin-top: 30%;
     
     }
+    
+    #about_main #about_article {
+        -webkit-transition: all 0.35s ease-in-out;
+        transition: all 0.35s ease-in-out;
+    }
+    
+    #mephoto {
+        margin: auto;
+        float: none;
+    }
+    
+    .about_me h3 {
+        margin-top: auto;
+        margin: auto;
+        padding-top: 20px;
+        padding: auto;
+        text-align: center;
+    }
+    
+    #about_main .menu_active {
+        margin-top: 40%;
+    }
 }
 
 
