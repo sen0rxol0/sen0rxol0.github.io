@@ -3,7 +3,7 @@
 title: "sen0rxol0's Website"
 description: "sen0rxol0's Website/Blog"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "sen0rxol0.github.io" # the base hostname & protocol for your site
+url: "http://sen0rxol0.github.io" # the base hostname & protocol for your site
 email_address: waltva.senpai@gmail.com
 twitter_username: sen0rxol0
 github_username:  sen0rxol0
