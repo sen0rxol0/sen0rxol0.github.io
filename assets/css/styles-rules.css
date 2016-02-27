@@ -283,6 +283,28 @@ Media Query/Rules
     }
 }
 
+@media ( max-width: 430px ) {
+    .main_article {
+       margin-top: 30%;
+    
+    }
+    
+    .posts_main_container .menu_active {
+        margin-top: 50%;
+    }
+    
+    
+    #articles_wrapper.menu_active {
+      margin-top: 50%;
+    
+    }
+    
+     #about_main .menu_active {
+        margin-top: 50%;
+    }
+    
+}
+
 
 
 

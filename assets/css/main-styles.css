@@ -261,17 +261,23 @@ MAIN/BLOG
 }
 
 .main_article {
-    margin-top: 150px;
-    
+    margin: 0;
+}
+
+.post_header_hero {
+    height: 100vh;
+   
 }
 
 .post_header {
+    margin: auto;
     margin-bottom: 20px;
     font-family: 'Droid Serif',  "Palatino Linotype", "Book Antiqua", serif;
+   
 }
 
 .post_header h1 {
-    margin: 0;
+    margin: 0 auto;
     margin-bottom: 20px;
     font-size: 1.6em;
     text-align: left;
@@ -301,6 +307,20 @@ MAIN/BLOG
 
 .main_section {
     
+}
+
+.post_hero {
+    width: 100%;
+    height: 80%;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+}
+
+.post_hero img {
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
 }
 
 .main_section p {
@@ -449,15 +469,10 @@ ARTICLES-PAGE
     
 }
 
-#articles_wrapper time {
-    font-weight: 300;
-    font-size: 0.75em;
-    font-style: italic;
-}
 
 .article_excerpt {
     width: 100%;
-    height: 100px;
+    height: 10%;
     margin: 0;
     padding: auto 15px;
     overflow: hidden;
@@ -465,9 +480,20 @@ ARTICLES-PAGE
 }
 
 .article_excerpt p {
-    padding: 0 15px 15px;
+    padding: 0 15px;
     font-size: 0.85em;
     text-align: left;
+}
+
+
+.articles_list time {
+    width: 90%;
+    margin: 0 auto;
+    padding: 15px;
+    font-weight: 300;
+    font-size: 0.75em;
+    font-style: italic;
+    display: inline-block;
 }
 
 .read_more {

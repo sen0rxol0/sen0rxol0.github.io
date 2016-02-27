@@ -4,9 +4,14 @@ layout: main
 
 <main class="posts_main_container">
 <article class="main_article">
-    <header class="post_header">
+     {% for post in site.posts %} {% if post.header %}
+        <header class="post_header post_header_hero">
+        <span class="post_hero"><img src="{{post.header}}"></span>
+        {% else %}
+        <header class="post_header">
+        {% endif %}{% endfor %}
     <h1>{{ page.title}}</h1>
-    <time datetime="{{page.date}}">Published &#9679; {{ page.date | date: "%B %-d, %Y" }}</time>
+    <time datetime="{{page.date}}">Posted on &#9679; {{ page.date | date: "%B %-d, %Y" }}</time>
     </header>
     <section class="main_section">    
         {{ content }}
