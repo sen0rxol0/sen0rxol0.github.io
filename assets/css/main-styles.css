@@ -18,6 +18,12 @@ body {
     background-color: #fafafa;
 }
 
+h1, h2, h3,
+h4, h5, h6 {
+    font-weight: 700;
+    color: #212121;
+}
+
 
 
 
@@ -106,16 +112,15 @@ Nav
 
 nav {
     width: 100%;
-    margin: 100px auto;
+    margin: 100px 0;
     padding; 0;
     flex: 2.5 1;
     align-self: center;
 }
 
 nav ul {
-    width: 90%;
+    width: 100%;
     margin: 0;
-    margin-left: 10%;
     padding: 0;
     list-style-type: none;
     display: block;
@@ -123,11 +128,12 @@ nav ul {
 }
 
 nav li {
-    margin: 0 0 10px;
-    padding: 5px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     font-weight: 500;
     font-size: 0.8em;
-    text-align: right;
+    text-align: left;
     text-transform: capitalize;
 }
 
@@ -138,12 +144,22 @@ nav li:last-child {
 }
 
 nav li a {
-    padding: inherit;
+    width: 100%;
+    height: 100%;
+    padding: 10px 0 10px 20px;
     text-decoration: none;
     color: #fafafa;
+    display: inline-block;
+    border-top: 1px solid rgba(7, 88, 95, 0.2);
+    border-bottom: 1px solid rgba(7, 88, 95, 0.2);
     position: relative;
     transition: all 0.35s ease-in-out;
    
+}
+
+nav li:nth-child(2) a,
+nav li:nth-child(3) a {
+    border-top: none;
 }
 
 nav li a::after {
@@ -154,22 +170,21 @@ nav li a::after {
     bottom: 0;
     left: 0;
     background-color: #fafafa;
-    transform: scale(0, 1);
+    transform: translateX(100%);
     transition: all 0.35s ease-in-out;
 }
 
 nav li a:hover,
 nav li a:active {
-    margin-right: 5px;
+    background-color: rgba(7, 88, 95, 0.2);
     color: #07585F;
 }
 
 nav li a:hover::after {
-   transform: scale(1, 1);
+   transform: translateX(0%);
 }
 
 nav .active_page {
-    margin-right: 5px;
     color: #07585F;
 }
 
@@ -261,7 +276,7 @@ MAIN/BLOG
 }
 
 .main_article {
-    margin: 0;
+    margin: 0 0 10%;
 }
 
 .post_header_hero {
@@ -269,16 +284,33 @@ MAIN/BLOG
    
 }
 
+.post_hero {
+    width: 100%;
+    height: 70%;
+    margin-top: 10%;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+}
+
+.post_hero img {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+}
+
 .post_header {
     margin: auto;
-    margin-bottom: 20px;
+    margin-bottom: 2%;
     font-family: 'Droid Serif',  "Palatino Linotype", "Book Antiqua", serif;
    
 }
 
 .post_header h1 {
-    margin: 0 auto;
+    margin: 0;
     margin-bottom: 20px;
+/*    font-weight: 500;*/
     font-size: 1.6em;
     text-align: left;
     
@@ -305,22 +337,40 @@ MAIN/BLOG
     
 }
 
+svg#calendar-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    margin-right: 5px;
+    padding: 0;
+    fill: #0d0d0d;
+}
+
 .main_section {
     
 }
 
-.post_hero {
-    width: 100%;
-    height: 80%;
-    display: inline-block;
-    overflow: hidden;
-    position: relative;
+
+.main_section h2 {
+    font-size: 1.4em;
+    
 }
 
-.post_hero img {
-    position: absolute;
-    right: 0%;
-    bottom: 0%;
+/*
+.main_section dl {
+    border-left: 4px solid rgba(15, 190, 205, 0.3);
+    padding-left: 5px;
+}
+*/
+
+.main_section dt {
+    font-weight: 500;
+     
+}
+
+.main_section dd {
+    font-size: 0.95em;
+       
 }
 
 .main_section p {
@@ -334,6 +384,21 @@ MAIN/BLOG
 .main_section p + p {
     text-indent: 2%;
 }
+
+
+.main_section a {
+    text-decoration: none;
+    color: #0fbecd;
+    transition: all 0.3s ease-in-out;
+    
+}
+
+.main_section a:hover,
+.main_section a:active {
+    color: #0d0d0d;
+    
+}
+
 
 #read_more {
     font-weight: 300;
@@ -481,7 +546,7 @@ ARTICLES-PAGE
 
 .article_excerpt p {
     padding: 0 15px;
-    font-size: 0.85em;
+    font-size: 0.82em;
     text-align: left;
 }
 
@@ -537,13 +602,14 @@ ARTICLES-PAGE
     position: absolute;
     top: 5%;
     right: 5%;
-    display: none;
+    transform: scale(0, 0);
+    transition: all 0.3s ease-in;
 
 }
 
 .read_more:hover .arrow_forward,
 .read_more:active .arrow_forward {
-    display: block;
+    transform: scale(1, 1);
 }
 
 .articles_list:hover .read_more {
@@ -613,8 +679,14 @@ ABOUT
 }
 
 .about_me a {
-    color: #07585F;
+    color: #0fbecd;
     text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.about_me a:hover,
+.about_me a:active {
+    color: #0d0d0d;
 }
 
 

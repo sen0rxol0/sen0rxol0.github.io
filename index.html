@@ -7,20 +7,23 @@ title: Blog
     {% for post in site.posts limit:2 %}
     <article class="main_article">
         {% if post.header %}
-            <header class="post_header post_header_hero">
-            <span class="post_hero"><img src="{{post.header}}"></span>
+        <header class="post_header post_header_hero">
+        <span class="post_hero"><img src="{{post.header}}"></span>
         {% else %}
-            <header class="post_header">
+        <header class="post_header">
         {% endif %}
         <h1>{% if forloop.last %} <a href="{{ site.url }}{{ post.url }}">{{ post.title}}</a>
-        {% else %} {{ post.title}} {% endif%}</h1>
-                
-        <time datetime="{{post.date}}">Posted on &#9679; {{ post.date | date: "%B %-d, %Y" }}</time>
+            {% else %} {{ post.title}} {% endif%}
+            </h1>
+       <time datetime="{{page.date}}">
+        <svg id="calendar-icon"><use xlink:href="{{ site.url }}/assets/img/icon-sprite.svg#calendar-icon"></use></svg>
+        {{ post.date | date: "%B %-d, %Y" }}</time>
         </header>
+       
         <section class="main_section">    
         {% if forloop.first %} {{ post.content }}
         {% else %} {{ post.excerpt }} 
-            <span id="read_more"><a href="{{ site.url }}{{ post.url }}">Continue reading...</a></span>
+            <span id="read_more"><a href="{{ site.url }}{{ post.url }}">Continue reading&mldr;</a></span>
         {% endif %}
         </section>
     </article>
