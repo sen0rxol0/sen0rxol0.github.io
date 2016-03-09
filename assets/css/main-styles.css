@@ -170,6 +170,7 @@ nav li a::after {
     bottom: 0;
     left: 0;
     background-color: #fafafa;
+    opacity: 0;
     transform: translateX(100%);
     transition: all 0.35s ease-in-out;
 }
@@ -181,7 +182,8 @@ nav li a:active {
 }
 
 nav li a:hover::after {
-   transform: translateX(0%);
+    transform: translateX(0%);
+    opacity: 1;
 }
 
 nav .active_page {
@@ -279,30 +281,8 @@ MAIN/BLOG
     margin: 0 0 10%;
 }
 
-.post_header_hero {
-    height: 100vh;
-   
-}
-
-.post_hero {
-    width: 100%;
-    height: 70%;
-    margin-top: 10%;
-    display: inline-block;
-    overflow: hidden;
-    position: relative;
-}
-
-.post_hero img {
-    position: absolute;
-    top: 0%;
-    right: 0%;
-    bottom: 0%;
-}
-
 .post_header {
-    margin: auto;
-    margin-bottom: 2%;
+    margin: 10% auto 2%;
     font-family: 'Droid Serif',  "Palatino Linotype", "Book Antiqua", serif;
    
 }
@@ -356,12 +336,16 @@ svg#calendar-icon {
     
 }
 
-/*
-.main_section dl {
-    border-left: 4px solid rgba(15, 190, 205, 0.3);
-    padding-left: 5px;
+.main_section h2 {
+    font-size: 1.2em;
+    
 }
-*/
+
+.main_section h4 {
+    font-size: 1em;
+    
+}
+
 
 .main_section dt {
     font-weight: 500;
@@ -369,14 +353,14 @@ svg#calendar-icon {
 }
 
 .main_section dd {
-    font-size: 0.95em;
+    font-size: 0.9em;
        
 }
 
 .main_section p {
     margin: 30px auto;
     font-weight: 400;
-    font-size: 0.95em;
+    font-size: 0.9em;
     text-align: left;
    
 }
@@ -399,12 +383,25 @@ svg#calendar-icon {
     
 }
 
+.article_snapshot {
+    width: 100%;
+    height: 450px;
+    margin: 0;
+    margin-bottom: 50px;
+}
+
+.article_snapshot figcaption {
+    text-align: right;
+    font-size: 0.9em;
+}
+
 
 #read_more {
     font-weight: 300;
     font-size: 0.8em;
     text-align: right;
     display: block;
+    
     
 }
 
