@@ -673,86 +673,25 @@ ABOUT
     margin: 30px 0;
 }
 
-.about_me a {
+#about_main a {
     color: #0fbecd;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
 }
 
-.about_me a:hover,
-.about_me a:active {
+#about_main a:hover,
+#about_main a:active {
     color: #0d0d0d;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.about_site svg {
+	fill: #07585F;	
+	transition: all 0.3s ease-in-out;
+}
+
+.about_site a:hover svg {
+	fill: #0d0d0d;
+}
 
 
 
