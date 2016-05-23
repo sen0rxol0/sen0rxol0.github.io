@@ -18,11 +18,7 @@ defaults:
       path: ""
       type: "posts"
     values:
-<<<<<<< HEAD
       permalink: "/blog/:title"
-=======
-      permalink: "/blog/:title" 
->>>>>>> 94fe2adefe03f2717f7bd118dfeba99a46daaff3
       layout: "post"
 
 
