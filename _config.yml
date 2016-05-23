@@ -2,8 +2,8 @@
 
 title: "sen0rxol0's Website"
 description: "sen0rxol0's Website/Blog"
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://sen0rxol0.github.io" # the base hostname & protocol for your site
+baseurl: ""
+url: "http://sen0rxol0.github.io"
 email_address: waltva.senpai@gmail.com
 twitter_username: sen0rxol0
 github_username:  sen0rxol0
@@ -18,8 +18,8 @@ defaults:
       path: ""
       type: "posts"
     values:
-      permalink: "/blog/:title" 
-	  layout: "post"
+      permalink: "/blog/:title"
+      layout: "post"
 
 
 # Gems
