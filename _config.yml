@@ -17,14 +17,17 @@ github_username:  sen0rxol0
 
 excerpt_separator: <!--excerptor-->
 
-#permalink: /:title/
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      permalink: "/blog/:title" 
 
 
 # Gems
 
-#gems: [ jekyll-paginate ]
 
 # Exclude/Include folders/files from Conversion
 include: ["assets"]
-
-exclude: ["gulpfile.js", "node_modules", "package.json", "npm-debug.log", "Gemfile", "Gemfile.lock"]
