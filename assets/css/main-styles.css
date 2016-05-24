@@ -684,14 +684,5 @@ ABOUT
     color: #0d0d0d;
 }
 
-.about_site svg {
-	fill: #07585F;	
-	transition: all 0.3s ease-in-out;
-}
-
-.about_site a:hover svg {
-	fill: #0d0d0d;
-}
-
 
 
