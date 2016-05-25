@@ -660,9 +660,11 @@ code, pre {
 
 
 #about_main {
-    width: 50%;
-    margin: 10% auto;
-    font-size: 1rem;
+	width: 50%;
+	height: 100vh;
+	margin: 0 auto;
+	padding-top: 5%;
+	font-size: 1rem;
 	
 	#mephoto {
 		width: 180px;
