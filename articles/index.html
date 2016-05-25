@@ -18,11 +18,11 @@ title: Articles
     </div>
     {% endunless %}
     <time datetime="{{page.date}}">
-        <svg id="calendar-icon"><use xlink:href="{{ site.url }}/assets/img/icon-sprite.svg#calendar-icon"></use></svg>
+        <svg><use xlink:href="{{ site.url }}/assets/img/icon-sprite.svg#calendar-icon"></use></svg>
         {{ post.date | date: "%B %-d, %Y" }}
     </time>
     
-    <span class="read_more"><a href="{{ site.url }}{{ post.url }}">Read More</a>
+    <span class="article_read_more"><a href="{{ site.url }}{{ post.url }}">Read More</a>
     <svg class="arrow_forward"><use xlink:href="{{ site.url }}/assets/img/icon-sprite.svg#arrow-right-icon"/></svg></span>    
 </article>
     {% endfor %}
