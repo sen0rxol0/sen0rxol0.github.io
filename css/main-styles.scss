@@ -52,6 +52,8 @@ code, pre {
 	background-color: rgba($main-color, 0.5);
 	color:  $main-bg-color;
 	position: absolute;
+	top: 100px;
+	transition: all 0.3s ease-in-out;
 	
 	
 	#available_month {
@@ -60,13 +62,22 @@ code, pre {
 	}
 	
 	a {
-		width: 100%;
-		height: 100%;
-		display: block;
-	}
-	
-	&:hover {
-		cursor: pointer;
+		width: 40px;
+		height: 25px;
+		margin-left: 5px;
+		padding: 5px;
+		display: inline-block;
+		svg {
+			width: 100%;
+			height: 100%;
+			fill: $main-color;
+			-webkit-transition: fill 0.35s ease-in-out;
+			transition: fill 0.35s ease-in-out;
+
+			&:hover {
+				fill: $main-bg-color;  
+			}
+		}
 	}
 }
 
@@ -190,6 +201,13 @@ code, pre {
 			text-transform: lowercase;
 		}
 		
+		li:nth-child(2),
+		li:nth-child(3) {
+			a {
+				border-top: none;
+			}
+		}
+		
 		a {
 			width: 100%;
 			height: 100%;
@@ -232,16 +250,10 @@ code, pre {
 
 		}
 		
-		li:nth-child(2),
-		li:nth-child(3) {
-			a {
-				border-top: none;
-			}
+		.active_page {
+			color: $main-color;
 		}
-	}
-	
-	.active_page {
-		color: $main-color;
+		
 	}
 	
 	#footer_container {
@@ -412,7 +424,7 @@ code, pre {
 		
 		a {
 			text-decoration: none;
-			color: lighten($main-color, 20);
+			color: lighten($main-color, 5);
 			-webkit-transition: all 0.3s ease-in-out;
 			transition: all 0.3s ease-in-out;
 			
@@ -697,7 +709,7 @@ code, pre {
 	}
 	
 	a {
-		color: lighten($main-color, 20);
+		color: lighten($main-color, 5);
 		text-decoration: none;
 		-webkit-transition: all 0.3s ease-in-out;
 		transition: all 0.3s ease-in-out;
