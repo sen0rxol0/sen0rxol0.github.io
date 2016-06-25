@@ -55,6 +55,12 @@ code, pre {
 	top: 100px;
 	transition: all 0.3s ease-in-out;
 	
+	div {
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
+	
 	
 	#available_month {
 		font-weight: bold;
@@ -62,22 +68,14 @@ code, pre {
 	}
 	
 	a {
-		width: 40px;
-		height: 25px;
+		width: 100%;
+		height: 100%;
 		margin-left: 5px;
 		padding: 5px;
 		display: inline-block;
-		svg {
-			width: 100%;
-			height: 100%;
-			fill: $main-color;
-			-webkit-transition: fill 0.35s ease-in-out;
-			transition: fill 0.35s ease-in-out;
-
-			&:hover {
-				fill: $main-bg-color;  
-			}
-		}
+		position: absolute;
+		top: 0;
+		right: 0;
 	}
 }
 
@@ -666,35 +664,11 @@ code, pre {
 	padding-top: 5%;
 	font-size: 1rem;
 	
-	#mephoto {
-		width: 180px;
-		height: 180px;
-		overflow: hidden;
-		float: right;
-		position: relative;
-		
-		span {
-			width: 180px;
-			height: 180px;
-			margin: 0;
-			overflow: hidden;
-			display: block;
-			position: relative;
-		}
-		
-		img {
-			width: 120%;
-			height: 110%;
-			position: absolute;
-			right: 0;
-		}
-	}
-	
 	.about_me {
 		
 		h3 {
 			margin: 0;
-			margin-right: 190px;
+			margin-right: 20px;
 			padding-top: 160px;
 			font-weight: 400;
 			text-align: right;
