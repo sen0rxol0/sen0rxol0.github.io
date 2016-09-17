@@ -13,7 +13,7 @@ title: sen0rxol0's blog - Blog
         <header class="post_header">
         {% endif %}
         <h1>{% if forloop.last %}
-			<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title}}</a>
+			<a class="ajx_nv" data-href="{{ site.baseurl }}{{ post.url }}">{{ post.title}}</a>
 		{% else %} {{ post.title}} {% endif%}</h1>
        <time datetime="{{page.date}}">
         <svg id="calendar-icon"><use xlink:href="{{ site.baseurl }}/assets/img/icon-sprite.svg#calendar-icon"></use></svg>
@@ -21,11 +21,11 @@ title: sen0rxol0's blog - Blog
         </header>
        
         <section class="main_section">  
-        {% if forloop.first %} {{ post.content }}
-        {% else %} {{ post.excerpt }} 
-			<span id="read_more"><a href="{{ site.baseurl }}{{ post.url }}">Continue reading&mldr;</a>
+			{% if forloop.first %} {{ post.content }}
+			{% else %} {{ post.excerpt }} 
+			<span id="read_more" class="ajx_nv" data-href="{{ site.baseurl }}{{ post.url }}">Continue reading&mldr;
 			</span>
-        {% endif %}
+			{% endif %}
         </section>
     </article>
     {% endfor %}
