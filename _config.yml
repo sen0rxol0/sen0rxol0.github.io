@@ -2,27 +2,36 @@
 
 title: "sen0rxol0's Website"
 description: "sen0rxol0's Website/Blog"
-baseurl: ""
-url: "http://sen0rxol0.github.io"
-email_address: walterb.varela@gmail.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://itswalter.me" # the base hostname & protocol for your site
+email_address: waltva.senpai@gmail.com
 twitter_username: sen0rxol0
 github_username:  sen0rxol0
 
 
-# Build settings
 excerpt_separator: <!--excerptor-->
-
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      permalink: "/blog/:title"
-      layout: "post"
-
 
 # Gems
 
 # Exclude/Include folders/files from Conversion
 include: ["assets"]
+
+exclude: ["gulpfile.js", "node_modules", "package.json", "npm-debug.log", "Gemfile", "Gemfile.lock"]
+
+
+# Build settings
+
+collections:
+  posts:
+    permalink: /blog/:title/
+
+
+
+#defaults:
+#  -
+#    scope:
+#	  path: ""
+#	  type: posts
+#	values:
+#	  layout: post
+#	  permalink: /blog/:title/

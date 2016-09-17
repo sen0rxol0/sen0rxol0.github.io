@@ -1,36 +1,34 @@
 ---
 layout: main
-title: Blog
+title: Walter Varela &verbar; Web Developer
 ---
 
-<main class="posts_main_container">
-    {% for post in site.posts limit:2 %}
-    <article class="main_article">
-        {% if post.header %}
-        <header class="post_header post_header_hero">
-        <span class="post_hero"><img src="{{post.header}}"></span>
-        {% else %}
-        <header class="post_header">
-        {% endif %}
-        <h1>{% if forloop.last %} <a href="{{ site.url }}{{ post.url }}">{{ post.title}}</a>
-            {% else %} {{ post.title}} {% endif%}
-            </h1>
-       <time datetime="{{page.date}}">
-        <svg id="calendar-icon"><use xlink:href="{{ site.url }}/assets/img/icon-sprite.svg#calendar-icon"></use></svg>
-        {{ post.date | date: "%B %-d, %Y" }}</time>
-        </header>
-       
-        <section class="main_section">    
-        {% if forloop.first %} {{ post.content }}
-        {% else %} {{ post.excerpt }} 
-            <span id="read_more"><a href="{{ site.url }}{{ post.url }}">Continue reading&mldr;</a></span>
-        {% endif %}
-        </section>
-    </article>
-    {% endfor %}
-    {% if site.posts.size > 2 %}
-    <div id="see_articles">
-        <p><a href="{{ site.url }}/articles/">see all articles</a></p>
-    </div>
-    {% endif %}
-</main>
+<div id="particles-bg" class="particle_bg"></div>
+
+<span class="ham_btn" title="Menu"><svg><use xlink:href="{{ site.baseurl }}/assets/img/icon-sprite.svg#menu-icon"/></svg></span>
+
+<header>
+	<div id="site_logo">
+		<span><img src="{{ site.baseurl }}/assets/img/logo003.jpg" alt="Avatar" title="sen0rxol0"></span>
+	</div>
+</header>
+
+<nav id="site_nav_main" class="nav_hidden" title="Navigation">
+	<ul>
+		<li class="ajx_nv" data-href="{{ site.baseurl }}blog/">Blog</li>
+		<li class="ajx_nv" data-href="{{ site.baseurl }}blog/">Projects</li>
+	</ul>
+</nav>
+
+<article id="about_article">
+	<section class="about_me">
+		<div class="description " id="type">
+			<p>I&#39;m <strong>Walter Varela</strong>, a devoted <b>programmer</b> slash <b>developer</b> who is currently focusing on <b>Web Development</b>, <b>Security</b>, and being a <b><em>ninja</em>.</b> In other words, i write <b>code</b> and exploit things, with <em>love</em> and a tint of <em>madness.</em></p>
+			<p>i&#39;m one of those that really enjoys and makes the most out of technologies &lpar;web in particular&rpar;, use them on a daily basis and follow their trends, and because of that i became passionate about it. So, writing codes, creating, solving, failing and expecially trying harder is what i do as a way to contribute to the technology world.</p>
+		</div>
+		<br>
+		<div id="type_2" class="contact">
+		   <p>The fastest way to reach out to me is through <a href="mailto:{{site.email_address}}" target="_blank">mail</a> or <a href="https://twitter.com/{{site.twitter_username}}" target="_blank">&commat;sen0rxol0</a>, so, feel welcome to say hello!</p>
+		</div>
+	</section>
+</article>

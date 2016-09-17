@@ -1,20 +1,18 @@
 ---
-layout: main
+layout: blog
 ---
 
-<main class="posts_main_container">
+<div class="posts_main">
 <article class="main_article">
     <header class="post_header">
     <h1>{{ page.title}}</h1>
     <time datetime="{{page.date}}">
-        <svg><use xlink:href="{{ site.url }}/assets/img/icon-sprite.svg#calendar-icon"></use></svg>
+        <svg class="calendar_icon"><use xlink:href="{{ site.baseurl }}/assets/img/icon-sprite.svg#calendar-icon"></use></svg>
         {{ page.date | date: "%B %-d, %Y" }}</time>
     </header>
     <section class="main_section">    
         {{ content }}
     </section>
 </article>
-<div id="see_articles">
-    <p><a href="{{ site.url }}/articles/">go back to articles</a></p>
+<span class="see_articles ajx_nv" data-href="{{ site.baseurl }}/articles/">Articles</span>
 </div>
-</main>

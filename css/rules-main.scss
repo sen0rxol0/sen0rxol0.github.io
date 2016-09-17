@@ -21,7 +21,7 @@ Media Query/Rules
         width: 80%;
         margin-left: 15%;
         margin-right: 10%;
-        -webkit-flex-flow: column nowrap;
+        -webkit-flex-flow; column nowrap;
         -ms-flex-flow: column nowrap;
         flex-flow: column nowrap;
     }

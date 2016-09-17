@@ -1,45 +1,11 @@
-<header id="main_header" class="">
-        <div id="header_logo">
-            <img src="{{ site.url }}/assets/img/logo.svg" alt="Logo Image" title="logo">
-        </div>
-
-        <div id="header_quote">
-            <h3><span> &#35;we&#39;re all</span> alike</h3>
-        </div>
-        <nav id="site_nav" title="Navigation">
-            <ul>
-                <li>
-                    <a href="{{ site.url}}/">blog</a>
-                </li>
-                <li>
-                    <a href="{{ site.url }}/articles/">articles</a>
-                </li>
-                <li>
-                    <a href="{{ site.url }}/about/">whois</a>
-                </li>
-            </ul>
-        </nav>
-        
-         <div id="footer_container">
-             <svg class="menu_icon"><use xlink:href="{{ site.url }}/assets/img/icon-sprite.svg#menu-icon"/></svg>
-             <div id="footer_contacts">
-                <ul>
-                    <li><a href="https://github.com/{{site.github_username}}" title="sen0rxol0's GitHub" target="_blank">
-                        <svg class="links_icon" width="30" height="25">
-                            <use xlink:href="{{ site.url }}/assets/img/icon-sprite.svg#github-icon"/>
-                        </svg>
-                    </a></li>
-                    <li><a href="https://twitter.com/{{site.twitter_username}}" title="Follow sen0rxol0 on Twitter" target="_blank">
-                        <svg class="links_icon" width="30" height="25"><use xlink:href="{{ site.url }}/assets/img/icon-sprite.svg#twitter-icon"/>
-                        </svg>
-                    </a></li>
-                    <li><a href="mailto:{{site.email_address}}" title="Say Hello/ Contact Me" target="_blank">
-                         <svg class="links_icon" width="30" height="27">
-                            <use xlink:href="{{ site.url }}/assets/img/icon-sprite.svg#email-icon"/>
-                        </svg>
-                    </a></li>
-                </ul>
-            </div>
-            <p id="rights">&copy; 2016 sen0rxol0</p>
-        </div>
+<header id="bpage_header" class="nav_hidden">
+	<div id="header_quote">
+		<h3><span> &#35;we&#39;re all</span> alike</h3>
+	</div>
+	<nav id="blog_nav" title="Navigation">
+		<ul>
+			<li class="ajx_nv" data-href="{{ site.baseurl }}/">home</li>
+			<li class="ajx_nv" data-href="/articles/">articles</li>
+		</ul>
+	</nav>
 </header>

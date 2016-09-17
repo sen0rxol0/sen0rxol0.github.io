@@ -1,80 +1,306 @@
 "use strict";
 
 
-var anchorEl = document.querySelectorAll("#site_nav a");
-for (var i = 0; i < anchorEl.length; i++) {
+function menuController() {
+	
+	var burgerMenu = document.querySelector("span[title='Menu']");
+	var navEl = document.getElementsByTagName("nav")[0];
 
-	var hrefAttr = anchorEl[i].getAttribute("href");
-	if (hrefAttr === window.location.href) {
-		anchorEl[i].classList.add("active_page");
+	function clearMenu() {
+		if (navEl.id === "blog_nav")
+			navEl.parentElement.classList.remove("nav_active");
+		else
+			navEl.classList.remove("nav_active");
 	}
-}
-
-var activePage = document.querySelector(".active_page");
-
-if (!activePage) {
-	anchorEl[0].classList.add("active_page");
-}
-
-
-
-
-var menuIcon = document.querySelector(".menu_icon"),
-	contactLinks = document.querySelector("#footer_contacts"),
-	siteNav = document.querySelector("#site_nav"),
-	mainArticle = document.querySelector(".main_article"),
-	articlesWrap = document.querySelector("#articles_wrapper"),
-	aboutArticle = document.querySelector("#about_article");
-
-menuIcon.addEventListener("click", function() {
-	this.classList.toggle("menu_active");
-	contactLinks.classList.toggle("menu_active");
-	siteNav.classList.toggle("menu_active");
-
-	if (document.body.clientWidth <= 520) {
-		mainArticle.classList.toggle("menu_active");
-		articleWrap.classList.toggle("menu_active");
-		aboutArticle.classList.toggle("menu_active");
-	}
-});
-
-
-var mainHeader = document.getElementById("main_header");
-if (document.body.clientWidth <= 950) {
-	window.onscroll = function() {
-		if (window.scrollY >= 120) {
-			mainHeader.classList.add("hide_header");
-			document.querySelector(".menu_icon").classList.remove("menu_active");
-			document.querySelector("div#footer_contacts").classList.remove("menu_active");
-			document.getElementById("site_nav").classList.remove("menu_active");
+	
+	function showMenu() {
+		if (navEl.classList.contains("nav_active") || navEl.parentElement.classList.contains("nav_active")) {
+			clearMenu();
+			return;
 		} else {
-			mainHeader.classList.remove("hide_header");
+			if (navEl.id === "blog_nav")
+				navEl.parentElement.classList.add("nav_active");
+			else
+				navEl.classList.add("nav_active");
 		}
+	}
+
+	burgerMenu.addEventListener("click", showMenu);
+}
+
+
+
+
+function AjaxReq() {
+	
+	var updateUrl, pageInfo, rData;
+	
+	function pagesReveal() {
+		var revealer = document.getElementById("revealer_loader");
+
+		var percentageCount, percentage = 0;
+		
+		var animCtrl = {
+			play: function() {
+				revealer.classList.add("rel_play");
+				revealer.classList.remove("rel_pause");
+				makeChanges();
+			},
+			pause: function() {
+				revealer.classList.add("rel_pause");
+				var pInter = setInterval(function() {
+					if (isContentReady()) {
+						animCtrl.play();
+						clearInterval(pInter);
+					}
+				}, 50);
+			}
+		}
+
+		var animStart = function(ev) {
+			if (ev.target.id === "revealer_layer_1") {
+				return;
+			}
+
+			percentageCount = window.setInterval(function() {
+				percentage += 1;
+				if (percentage === 50) {
+					if(isContentReady()) {
+						makeChanges();
+					} else {
+						animCtrl.pause();
+					}
+				}
+
+				if (percentage === 100) {
+					clearInterval(percentageCount);
+				}
+			}, 2000/100);
+		};
+
+		var animEnd = function(ev) {
+			if (ev.target.id === "revealer_layer_2") {
+				return;
+			} else {
+				clearAnim();
+			}
+
+		};
+
+		function clearAnim() {
+			revealer.classList.remove("reloading_page");
+			revealer.removeEventListener("animationstart", animStart);
+			revealer.removeEventListener("animationend", animEnd);
+		} 
+
+		revealer.addEventListener("animationstart", animStart);
+		revealer.addEventListener("animationend", animEnd);
+		revealer.classList.add("reloading_page");
+	}
+	
+	
+	function isContentReady() {
+		if (typeof rData !== "object")
+			return false;
+		else if (rData === null)
+			return;
+		else
+			return true;
+	}
+	
+	
+	function makeChanges() {
+
+		if (updateUrl) history.pushState(pageInfo, pageInfo.title, pageInfo.pName);
+
+		var requestedDocument = rData;
+		var content = requestedDocument.querySelector("main");
+		var contentHolder = document.querySelector("main");
+
+		document.title = requestedDocument.title;
+		contentHolder.innerHTML = content.innerHTML;
+		contentHolder.id = content.id;
+		
+
+		pageInfo.title ? pageInfo.title : pageInfo["title"] = requestedDocument.title;
+		
+		ajax.navigation();
+		
+		if (document.location.pathname === "/") {
+			sCaller.particlesJs();
+			sCaller.pLanding();
+		}
+		
+		sCaller.ctrlMenu();
+	}
+	
+	
+	function HttpRequests(rHref, pState) {	
+
+		rHref ? updateUrl = true : updateUrl = false;
+
+		if (pState && typeof pState === "object") {
+			pageInfo = pState;
+		} else {
+			pageInfo = {
+				url: rHref,
+				pName: rHref
+			};
+		}
+
+		var requestStatus = {
+			progress: function() {	
+				pagesReveal();
+			}
+		};
+
+		var requestCb = {
+			success: function(data) {
+				rData = data;
+			},
+			error: function(status) {
+				rData = null;
+				console.log(status);
+			}
+		}
+		
+		function filterUrl(url) {
+			if (!updateUrl) {
+				return "index.html";
+			} else {
+				return url + "index.html";
+			}
+			
+			
+		}
+
+
+		function makeRequest() {
+			var promise = new Promise(function(resolve, reject) {
+
+				var xhr = new XMLHttpRequest();
+
+				xhr.addEventListener("progress", requestStatus.progress);
+
+				xhr.open("GET", filterUrl(pageInfo.url), true);
+
+				xhr.responseType = "document";
+
+				xhr.onload = function() {
+					if ((this.readyState === 4) && (this.status === 200))
+						resolve(this.response);
+					else
+						reject(this.statusText);
+				};
+
+				xhr.onerror = function() { reject(this.statusText); };
+
+				xhr.send();
+			});
+
+			return promise;
+		}
+
+		this.make = function() {
+			makeRequest().then(requestCb.success).catch(requestCb.error);
+		}
+
+	}
+	
+	
+	
+	function popState() {
+		return window.addEventListener("popstate", function(ev) {
+			ev.preventDefault();
+			if (ev.state) {
+				var xhr = new HttpRequests(null, ev.state);
+				xhr.make();
+			}	
+		});
+	}
+	
+	
+	this.navigation = function() {
+		
+		function processRq(ev) {
+			ev.preventDefault();
+			var href = this.getAttribute("data-href");
+			
+			var xhr = new HttpRequests(href);
+			xhr.make();
+		}
+		
+		var navLinks = document.querySelectorAll(".ajx_nv");
+
+		for (var i = 0; i < navLinks.length; i++) {
+			navLinks[i].addEventListener("click", processRq);
+		}
+	};
+	
+	
+	this.init = function() {
+		var pageInfo = {
+			url: document.location.href,
+			title: document.title,
+			pName: document.location.pathname
+		};
+		
+		history.replaceState(pageInfo, pageInfo.title, pageInfo.url);
+		
+		this.navigation();
+		
+		popState();
 	};
 }
 
 
 
-
-var availability = document.getElementById("availability");
-availability.addEventListener("mouseover", function() {
-	this.classList.add("availability_show");
-});
-
-
-availability.addEventListener("mouseout", function() {
-	this.classList.remove("availability_show");
-});
-
-var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
-var dateObj = new Date();
-var currentMonth = dateObj.getMonth();
-for (var i = 0; i < months.length; i++) {
-	if (i === currentMonth) {
-		i += 1;
-		var availableMonth = months[i];
-		break;
+function pLandingAnim(eSelectors) {
+	var sEls = document.querySelectorAll(eSelectors);
+	
+	for (var i = 0; i < sEls.length; i++) {
+		sEls[i].classList.add("fade_in");
 	}
 }
-var spanEl = document.getElementById("available_month");
-spanEl.innerHTML = availableMonth;
+
+
+
+function scptCaller() {
+	this.particlesJs = function() {
+		var pBg = document.getElementById("particles-bg");
+		console.log(pBg.children);
+		
+		particlesJS.load("particles-bg", 'assets/scripts/particlesjs-config.json');
+	};
+	
+	this.pLanding = function() {
+		pLandingAnim("#about_article, #site_logo, #site_nav_main, #footer_container");
+	};
+	
+	this.ctrlMenu = menuController;
+}
+
+
+
+var ajax = new AjaxReq();
+var sCaller = new scptCaller();
+
+document.onreadystatechange = function (ev) {
+	
+	if (document.readyState === "interactive") {
+		sCaller.particlesJs();
+	}
+	
+    if (document.readyState === "complete") {
+		sCaller.ctrlMenu();
+		sCaller.pLanding();
+		ajax.init();
+    }
+}
+
+
+
+
+
+
+
