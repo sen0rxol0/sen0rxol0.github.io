@@ -1,6 +1,23 @@
 "use strict";
 
 
+function mBheader() {
+	var bHeader = document.getElementById("bpage_header");
+	if (document.body.clientWidth > 770) {
+		
+		window.onscroll = function() {
+			if (window.scrollY >= 120) {
+				console.log(window.scrollY);
+				bHeader.classList.add("min_header");
+			} else {
+				bHeader.classList.remove("min_header");
+			}
+		}
+	} else {
+		return;
+	}
+}
+
 function menuController() {
 	
 	var burgerMenu = document.querySelector("span[title='Menu']");
@@ -129,6 +146,8 @@ function AjaxReq() {
 		if (document.location.pathname === "/") {
 			sCaller.particlesJs();
 			sCaller.pLanding();
+		} else {
+			sCaller.minBh();
 		}
 		
 		sCaller.ctrlMenu();
@@ -264,22 +283,20 @@ function pLandingAnim(eSelectors) {
 }
 
 
-
 function scptCaller() {
 	this.particlesJs = function() {
 		var pBg = document.getElementById("particles-bg");
-		console.log(pBg.children);
 		
+		if (!pBg) { return; }
 		particlesJS.load("particles-bg", 'assets/scripts/particlesjs-config.json');
 	};
 	
-	this.pLanding = function() {
-		pLandingAnim("#about_article, #site_logo, #site_nav_main, #footer_container");
-	};
+	this.pLanding = function() { return pLandingAnim("#about_article, #site_logo, #site_nav_main, #footer_container"); };
 	
 	this.ctrlMenu = menuController;
+	
+	this.minBh = mBheader;
 }
-
 
 
 var ajax = new AjaxReq();
@@ -295,6 +312,7 @@ document.onreadystatechange = function (ev) {
 		sCaller.ctrlMenu();
 		sCaller.pLanding();
 		ajax.init();
+		mBheader();
     }
 }
 
