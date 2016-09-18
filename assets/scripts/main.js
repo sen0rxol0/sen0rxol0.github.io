@@ -291,7 +291,7 @@ function scptCaller() {
 		particlesJS.load("particles-bg", 'assets/scripts/particlesjs-config.json');
 	};
 	
-	this.pLanding = function() { return pLandingAnim("#about_article, #site_logo, #site_nav_main, #footer_container"); };
+	this.pLanding = function() { return pLandingAnim("#about_article, #s_character, #site_nav_main, #footer_container"); };
 	
 	this.ctrlMenu = menuController;
 	
