@@ -261,17 +261,11 @@ code, pre {
 	svg {
 		width: 100%;
 		height: 100%;
-		fill: $main-dark-color;
+		fill: #baf5fa;
 		transition: all 0.3s ease-in-out;
-
-		&:hover {
-			fill: $main-color;
-			cursor: pointer;
-		}
 
 		&:active {
 			fill: $main-dark-color;
-			cursor: pointer;
 		}
 	}
 }
@@ -577,6 +571,16 @@ code, pre {
 
 
 #main_blog_wrapper {
+	
+	.ham_btn {
+		svg {
+			fill: $main-dark-color;
+
+			&:active {
+				fill: #baf5fa;
+			}
+		}
+	}
 		
 	.nav_hidden {
 		opacity: 0;
@@ -1015,16 +1019,29 @@ code, pre {
 		.nav_hidden {
 			opacity: 1;
 			transform: none;
-			transition: transform 0.2s ease-in-out;
+			transition: height 0.2s ease-in-out;
 		}
 		
 		.min_header {
-			transform: translateY(-100px);
+			height: 50px;
+			background: none;
+			background-color: $main-bg-color;
+			border-bottom: 2px solid $main-color;
+			box-shadow: 0px 4px 5px rgba($main-color, 0.2);
+			
+			#header_quote {
+				h3 {
+					color: $main-color;
+				}
+			}
+			
+			#blog_nav {
+				li {
+					color: $main-color;
+					background-color: rgba($main-color, 0.1);
+				}
+			}
 		}
-		
-//		.min_header {
-//			background: linear-gradient(to bottom, $main-color, transparent);
-//		}
 	}
 	
 	#bpage_header {
