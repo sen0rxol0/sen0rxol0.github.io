@@ -24,7 +24,7 @@ function menuController() {
 	var navEl = document.getElementsByTagName("nav")[0];
 
 	function clearMenu() {
-		if (navEl.id === "blog_nav")
+		if (navEl.id === "blog_nav" || navEl.id === "proj_nav")
 			navEl.parentElement.classList.remove("nav_active");
 		else
 			navEl.classList.remove("nav_active");
@@ -35,7 +35,7 @@ function menuController() {
 			clearMenu();
 			return;
 		} else {
-			if (navEl.id === "blog_nav")
+			if (navEl.id === "blog_nav" || navEl.id === "proj_nav")
 				navEl.parentElement.classList.add("nav_active");
 			else
 				navEl.classList.add("nav_active");
