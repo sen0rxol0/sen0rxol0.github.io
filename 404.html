@@ -31,6 +31,17 @@ title: Page Not Found &mdash; 404 &mdash; sen0rxol0
 <section id="n_found_section">
 	<div id="nf_wrap_main">
 		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 488 666" style="enable-background:new 0 0 488 666;" xml:space="preserve">
+			<filter id="drop_shadow">
+				 <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+				<feOffset dx="10" dy="10" result="offsetblur"/>
+				<feFlood flood-color="rgba(0, 0, 0, 0.5)"/>
+				<feComposite in2="offsetblur" operator="in"/>
+				<feMerge>
+				  <feMergeNode/>
+				  <feMergeNode in="SourceGraphic"/>
+				</feMerge>
+			</filter>
+			
 			<g><path class="sp_0" d="M488,73.8v586.4c0,3.2-2.6,5.7-5.7,5.7H5.7c-3.2,0-5.7-2.6-5.7-5.7V5.7C0,2.6,2.6,0,5.7,0
 					h373.8c1.1,0,2.2,0.3,3.2,1v0L485.4,69C487,70.1,488,71.9,488,73.8z"/>
 			<path class="sp_1" d="M488,70.7V72H388c-2.8,0-5-2.2-5-5V1L488,70.7z"/></g>
