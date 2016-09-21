@@ -3,6 +3,9 @@
 
 function mBheader() {
 	var bHeader = document.getElementById("bpage_header");
+	
+	if (!bHeader) { return; }
+	
 	if (document.body.clientWidth > 770) {
 		
 		window.onscroll = function() {
