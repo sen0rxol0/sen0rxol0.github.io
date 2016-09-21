@@ -20,7 +20,7 @@ function mBheader() {
 
 function menuController() {
 	
-	var burgerMenu = document.querySelector("span[title='Menu']");
+	var burgerMenu = document.querySelector("button[title='Menu']");
 	var navEl = document.getElementsByTagName("nav")[0];
 
 	function clearMenu() {
@@ -31,6 +31,8 @@ function menuController() {
 	}
 	
 	function showMenu() {
+		this.classList.toggle("ham_btn_active");
+		
 		if (navEl.classList.contains("nav_active") || navEl.parentElement.classList.contains("nav_active")) {
 			clearMenu();
 			return;
