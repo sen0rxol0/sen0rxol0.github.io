@@ -248,8 +248,11 @@ function AjaxReq() {
 		
 		function processRq(ev) {
 			ev.preventDefault();
-			var href = this.getAttribute("data-href");
 			
+			this.classList.add("click_feedback");
+			
+			var href = this.getAttribute("data-href");
+		
 			var xhr = new HttpRequests(href);
 			xhr.make();
 		}
