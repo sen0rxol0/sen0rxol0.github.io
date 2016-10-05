@@ -1,11 +1,8 @@
 "use strict";
 
-
 function mBheader() {
 	var bHeader = document.getElementById("bpage_header");
-	
 	if (!bHeader) { return; }
-	
 	if (document.body.clientWidth > 770) {
 		
 		window.onscroll = function() {
@@ -20,6 +17,7 @@ function mBheader() {
 		return;
 	}
 }
+
 
 function menuController() {
 	
@@ -149,7 +147,6 @@ function AjaxReq() {
 		ajax.navigation();
 		
 		if (document.location.pathname === "/") {
-			sCaller.particlesJs();
 			sCaller.pLanding();
 		} else {
 			sCaller.minBh();
@@ -252,7 +249,7 @@ function AjaxReq() {
 			this.classList.add("click_feedback");
 			
 			var href = this.getAttribute("data-href");
-		
+			
 			var xhr = new HttpRequests(href);
 			xhr.make();
 		}
@@ -281,7 +278,6 @@ function AjaxReq() {
 }
 
 
-
 function pLandingAnim(eSelectors) {
 	var sEls = document.querySelectorAll(eSelectors);
 	
@@ -292,14 +288,9 @@ function pLandingAnim(eSelectors) {
 
 
 function scptCaller() {
-	this.particlesJs = function() {
-		var pBg = document.getElementById("particles-bg");
-		
-		if (!pBg) { return; }
-		particlesJS.load("particles-bg", 'assets/scripts/particlesjs-config.json');
+	this.pLanding = function() {
+		pLandingAnim("#about_article, #s_character, #site_nav_main, #footer_container");
 	};
-	
-	this.pLanding = function() { return pLandingAnim("#about_article, #s_character, #site_nav_main, #footer_container"); };
 	
 	this.ctrlMenu = menuController;
 	
@@ -311,10 +302,6 @@ var ajax = new AjaxReq();
 var sCaller = new scptCaller();
 
 document.onreadystatechange = function (ev) {
-	
-	if (document.readyState === "interactive") {
-		sCaller.particlesJs();
-	}
 	
     if (document.readyState === "complete") {
 		sCaller.ctrlMenu();
