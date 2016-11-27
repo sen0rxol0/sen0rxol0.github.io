@@ -5,20 +5,22 @@ title: sen0rxol0's blog - Articles
 <div id="articles_main">
 	<div id="articles_wrapper">
 		{% for post in site.posts limit: 6 %}
-	<article class="articles_list">
-		<header class="article_header">
-			<h1>{{ post.title}}</h1>
-		</header>
+		<article class="articles_list">
+			<header class="article_header">
+				<h1>{{ post.title}}</h1>
+			</header>
 
-		<div class="article_excerpt">
-			{{ post.excerpt }}
-		</div>
+			<div class="article_excerpt">
+				{{ post.excerpt }}
+			</div>
 
-		<div class="article_read_more ajx_nv" data-href="{{site.baseurl }}{{ post.url }}">
-			<span><p>Read More</p><svg class="arrow_forward"><use xlink:href="{{ site.baseurl }}/assets/img/icon-sprite.svg#arrow-right-icon"/></svg>
-			</span>
-		</div>
-	</article>
+			<div class="article_read_more ajx_nv" data-href="{{ site.baseurl }}{{ post.url }}">
+				<span>
+					<p>Read More</p>
+					<svg class="arrow_forward"><use xlink:href="{{ site.baseurl }}/assets/img/icon-sprite.svg#arrow-right-icon"/></svg>
+				</span>
+			</div>
+		</article>
 		{% endfor %}
 	</div>
 </div>
