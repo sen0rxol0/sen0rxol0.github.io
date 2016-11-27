@@ -2,24 +2,17 @@
 layout: blog
 title: sen0rxol0's blog - Articles
 ---
-<div id="articles_main">
-	<div id="articles_wrapper">
+<div id="articles--main">
+	<div id="articles--wrapper" class="mdl-grid">
 		{% for post in site.posts limit: 6 %}
-		<article class="articles_list">
-			<header class="article_header">
-				<h1>{{ post.title}}</h1>
-			</header>
+		<article class="articles--list mdl-cell mdl-cell--6-col">
+			<h3>{{ post.title}}</h3>
 
-			<div class="article_excerpt">
+			<span class="article--excerpt">
 				{{ post.excerpt }}
-			</div>
+			</span>
 
-			<div class="article_read_more ajx_nv" data-href="{{ site.baseurl }}{{ post.url }}">
-				<span>
-					<p>Read More</p>
-					<svg class="arrow_forward"><use xlink:href="{{ site.baseurl }}/assets/img/icon-sprite.svg#arrow-right-icon"/></svg>
-				</span>
-			</div>
+			<button type="button" class="article--read ajx_nv mdl-button mdl-js-button mdl-button--raised" data-href="{{ site.baseurl }}{{ post.url }}">Read More</button>
 		</article>
 		{% endfor %}
 	</div>
