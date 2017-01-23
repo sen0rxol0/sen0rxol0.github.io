@@ -2,52 +2,57 @@
 
 (function() {
 
-	function mBheader() {
-		var bHeader = document.getElementById("bpage_header");
-		if (!bHeader) { return; }
-		if (document.body.clientWidth > 770) {
-			
-			window.onscroll = function() {
-				if (window.scrollY >= 120) {
-					console.log(window.scrollY);
-					bHeader.classList.add("c_header");
-				} else {
-					bHeader.classList.remove("c_header");
-				}
-			}
-		} else {
-			return;
+	function Material() {
+
+		this.progressEl = document.querySelector("#ajx--loader");
+
+		this.loading = function(percentage) {
+			this.progressEl.classList.add("ajx--loader-active");
+			this.progressEl.MaterialProgress.setBuffer(85);
+			this.progressEl.MaterialProgress.setProgress(percentage);
+		}
+
+		this.stopLoading = function() {
+			this.progressEl.classList.remove("ajx--loader-active");
 		}
 	}
 
+	// function mBheader() {
+	// 	var bHeader = document.getElementById("bpage_header");
+	// 	if (!bHeader) { return; }
+	// 	if (document.body.clientWidth > 770) {
+			
+	// 		window.onscroll = function() {
+	// 			if (window.scrollY >= 120) {
+	// 				// console.log(window.scrollY);
+	// 				bHeader.classList.add("c_header");
+	// 			} else {
+	// 				bHeader.classList.remove("c_header");
+	// 			}
+	// 		}
+	// 	} else {
+	// 		return;
+	// 	}
+	// }
 
-	function menuController() {
+
+	function menuHandler() {
 		
 		var burgerMenu = document.querySelector("button[title='Menu']");
 		var navEl = document.getElementsByTagName("nav")[0];
-
-		function clearMenu() {
-			if (navEl.id === "blog_nav" || navEl.id === "proj_nav")
-				navEl.parentElement.classList.remove("nav_active");
-			else
-				navEl.classList.remove("nav_active");
-		}
 		
-		function showMenu() {
+		function showHideMenu() {
 			this.classList.toggle("ham_btn_active");
 			
-			if (navEl.classList.contains("nav_active") || navEl.parentElement.classList.contains("nav_active")) {
-				clearMenu();
+			if (navEl.classList.contains("nav_active")) {
+				navEl.classList.remove("nav_active");
 				return;
 			} else {
-				if (navEl.id === "blog_nav" || navEl.id === "proj_nav")
-					navEl.parentElement.classList.add("nav_active");
-				else
-					navEl.classList.add("nav_active");
+				navEl.classList.add("nav_active");
 			}
 		}
 
-		burgerMenu.addEventListener("click", showMenu);
+		burgerMenu.addEventListener("click", showHideMenu);
 	}
 
 
@@ -56,67 +61,31 @@
 		
 		var updateUrl, pageInfo, rData;
 		
-		function pagesReveal() {
-			var revealer = document.getElementById("revealer_loader");
+		function pagesLaoder() {
 
-			var percentageCount, percentage = 0;
-			
-			var animCtrl = {
-				play: function() {
-					revealer.classList.add("rel_play");
-					revealer.classList.remove("rel_pause");
+			var percentage = 0;
+
+			var checkContent = function() {
+				if(isContentReady()) {
 					makeChanges();
-				},
-				pause: function() {
-					revealer.classList.add("rel_pause");
-					var pInter = setInterval(function() {
-						if (isContentReady()) {
-							animCtrl.play();
-							clearInterval(pInter);
-						}
-					}, 50);
+					material.stopLoading();
+					return true;
 				}
-			}
+			};
 
-			var animStart = function(ev) {
-				if (ev.target.id === "revealer_layer_1") {
-					return;
+			var percentageCount = window.setInterval(function() {
+				percentage += 1;
+				
+				if (percentage < 80) {
+					material.loading(percentage);
 				}
-
-				percentageCount = window.setInterval(function() {
-					percentage += 1;
-					if (percentage === 50) {
-						if(isContentReady()) {
-							makeChanges();
-						} else {
-							animCtrl.pause();
-						}
-					}
-
-					if (percentage === 100) {
+				
+				if (percentage === 40) {
+					if (checkContent())
 						clearInterval(percentageCount);
-					}
-				}, 2000/100);
-			};
-
-			var animEnd = function(ev) {
-				if (ev.target.id === "revealer_layer_2") {
-					return;
-				} else {
-					clearAnim();
 				}
-
-			};
-
-			function clearAnim() {
-				revealer.classList.remove("reloading_page");
-				revealer.removeEventListener("animationstart", animStart);
-				revealer.removeEventListener("animationend", animEnd);
-			} 
-
-			revealer.addEventListener("animationstart", animStart);
-			revealer.addEventListener("animationend", animEnd);
-			revealer.classList.add("reloading_page");
+				
+			}, 20);
 		}
 		
 		
@@ -150,8 +119,6 @@
 			if (document.location.pathname === "/") {
 				sCaller.particlesJs();
 				sCaller.pLanding();
-			} else {
-				sCaller.minBh();
 			}
 			
 			sCaller.ctrlMenu();
@@ -173,7 +140,7 @@
 
 			var requestStatus = {
 				progress: function() {	
-					pagesReveal();
+					pagesLaoder();
 				}
 			};
 
@@ -281,9 +248,6 @@
 
 
 
-
-
-
 	function pLandingAnim(eSelectors) {
 		var sEls = document.querySelectorAll(eSelectors);
 		
@@ -305,25 +269,22 @@
 		};
 		
 		this.pLanding = function() {
-			pLandingAnim("#about_article, #s_character, #site_nav_main, #footer--container");
+			pLandingAnim("#about_article, #s_character, #footer--container");
 		};
 		
-		this.ctrlMenu = menuController;
-		
-		this.minBh = mBheader;
+		this.ctrlMenu = menuHandler;
 	}
 
 
 
 	var ajax = new AjaxReq();
 	var sCaller = new scptCaller();
-
+	var material = new Material();
 
 	sCaller.particlesJs();
 	sCaller.ctrlMenu();
 	sCaller.pLanding();
 	ajax.init();
-	mBheader();
 }());
 
 

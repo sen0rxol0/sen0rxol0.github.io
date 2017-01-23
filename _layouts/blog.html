@@ -14,16 +14,7 @@
 {% include head.html %}
 
 <body>
-<div id="revealer_loader" class="">
-	<div id="revealer_layer_1"></div>
-	<div id="revealer_layer_2">
-		<div id="loader_wrapper">
-			<div class="loader_img">
-				<span><img src="{{ site.baseurl }}/assets/img/char0.jpg"></span>
-			</div>
-		</div>
-	</div>
-</div>
+<div id="ajx--loader" class="mdl-progress mdl-js-progress"></div>
 <main id="blog_main_wrapper">
 	
 <button class="ham_btn" title="Menu">
@@ -31,8 +22,13 @@
 	
 	<svg><use xlink:href="{{ site.baseurl }}/assets/img/icon-sprite.svg#arrow-left-icon"/></svg>
 </button>
-	
-{% include header.html %}
+
+<nav id="blog_nav" class="site_nav nav_hidden" title="Navigation">
+    <ul>
+        <li class="ajx_nv" data-href="{{ site.baseurl }}/">home</li>
+        <li class="ajx_nv" data-href="/articles/">articles</li>
+    </ul>
+</nav>
 
 {{content}}	
 </main>
