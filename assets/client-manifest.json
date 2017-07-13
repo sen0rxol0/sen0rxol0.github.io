@@ -1,5 +1,5 @@
 {
-  "publicPath": "https://itswalter.me/assets/",
+  "publicPath": "/assets/",
   "all": [
     "6.app.19c6bae285559ee799d0.js",
     "img/bg-00.15eb8e9.jpg",
@@ -9,18 +9,18 @@
     "4.app.67fa5407e31b0a6594e3.js",
     "5.app.1f3f3f1607ebe53f3dae.js",
     "0.app.d3f6edad00151b3e790f.js",
-    "vendor.fd2b6f04cb7ddd5d0df7.js",
-    "app.d8fddae43619539fdf2e.js",
+    "vendor.b81b0222e1b217d89de1.js",
+    "app.485b8415cf95c9e7a145.js",
     "9.app.cd60b264b35850147e41.js",
     "10.app.391dbd14f700babf2218.js",
     "11.app.a2f80351ff031b6df318.js",
-    "manifest.fd2b6f04cb7ddd5d0df7.js",
+    "manifest.b81b0222e1b217d89de1.js",
     "index.html"
   ],
   "initial": [
-    "manifest.fd2b6f04cb7ddd5d0df7.js",
-    "vendor.fd2b6f04cb7ddd5d0df7.js",
-    "app.d8fddae43619539fdf2e.js"
+    "manifest.b81b0222e1b217d89de1.js",
+    "vendor.b81b0222e1b217d89de1.js",
+    "app.485b8415cf95c9e7a145.js"
   ],
   "async": [
     "6.app.19c6bae285559ee799d0.js",
