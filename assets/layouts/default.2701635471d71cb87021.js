@@ -1,0 +1,2 @@
+webpackJsonp([6],{"5ali":function(e,n,t){"use strict";var l=function(){var e=this,n=e.$createElement;return(e._self._c||n)("nuxt")},r=[],u={render:l,staticRenderFns:r};n.a=u},jPnS:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var l=t("5ali"),r=t("VU/8"),u=r(null,l.a,null,null,null);n.default=u.exports}});
+//# sourceMappingURL=default.2701635471d71cb87021.js.map
