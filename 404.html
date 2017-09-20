@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+_______________________________________________/\\\\\\\_______________________________________________/\\\\\\________/\\\\\\\____        
+ _____________________________________________/\\\/////\\\____________________________________________\////\\\______/\\\/////\\\__       
+  ____________________________________________/\\\____\//\\\______________________________________________\/\\\_____/\\\____\//\\\_      
+   __/\\\\\\\\\\_____/\\\\\\\\___/\\/\\\\\\___\/\\\_____\/\\\__/\\/\\\\\\\___/\\\____/\\\_____/\\\\\_______\/\\\____\/\\\_____\/\\\_     
+    _\/\\\//////____/\\\/////\\\_\/\\\////\\\__\/\\\_____\/\\\_\/\\\/////\\\_\///\\\/\\\/____/\\\///\\\_____\/\\\____\/\\\_____\/\\\_    
+     _\/\\\\\\\\\\__/\\\\\\\\\\\__\/\\\__\//\\\_\/\\\_____\/\\\_\/\\\___\///____\///\\\/_____/\\\__\//\\\____\/\\\____\/\\\_____\/\\\_   
+      _\////////\\\_\//\\///////___\/\\\___\/\\\_\//\\\____/\\\__\/\\\____________/\\\/\\\___\//\\\__/\\\_____\/\\\____\//\\\____/\\\__  
+       __/\\\\\\\\\\__\//\\\\\\\\\\_\/\\\___\/\\\__\///\\\\\\\/___\/\\\__________/\\\/\///\\\__\///\\\\\/____/\\\\\\\\\__\///\\\\\\\/___ 
+        _\//////////____\//////////__\///____\///_____\///////_____\///__________\///____\///_____\/////_____\/////////_____\///////_____
+
+-->
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>404 - Page Not Found *</title>
+
+    <style>
+
+        .error-page {
+            width: 100vw;
+            height: 100vh;
+            color: #000;
+            background: #fafafa;
+            padding-top: 20%;
+        }
+
+        .error-container {
+            text-align: center;
+        }
+
+        .error-code {
+            padding: 12px 24px;
+            border-right: 1px solid rgba(0, 0, 0, 0.6);
+            vertical-align: top;
+            display: inline-block;
+        }
+
+        .error--message-wrapper {
+            padding: 12px 24px;
+            display: inline-block;
+        }
+
+        .error-message {
+            font-weight: 500;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .error-link {
+            color: #263238;
+            text-decoration: none;
+        }
+    
+    </style>
+</head>
+<body>
+    <main class="error-page">
+        <section class="error-container">
+            <h2 class="error-code">404</h2>
+
+            <div class="error--message-wrapper">
+                <h4 class="error-message">This page could not be found</h4>
+            </div>
+
+            <p v-if="error.statusCode === 404">
+                <nuxt-link class="error-link" to="/">Back to the home page</nuxt-link></p>
+        </section>
+    </main>
+</body>
+</html>
