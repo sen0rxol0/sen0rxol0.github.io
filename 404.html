@@ -18,7 +18,7 @@ _______________________________________________/\\\\\\\_________________________
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>404 - Page Not Found *</title>
+  <title>404 - Page Not Found</title>
 
   <style>
     .error-page {
@@ -60,17 +60,9 @@ _______________________________________________/\\\\\\\_________________________
 
 <body>
   <main class="error-page">
-    <section class="error-container">
-      <h2 class="error-code">404</h2>
-
-      <div class="error--message-wrapper">
-        <h4 class="error-message">This page could not be found</h4>
-      </div>
-
-      <p v-if="error.statusCode === 404">
-        <nuxt-link class="error-link" to="/">Back to the home page</nuxt-link>
-      </p>
-    </section>
+    <h2 class="error-code">404</h2>
+    <h4 class="error-message">Cette page est introuvable&excl;</h4>
+    <a class="error-link" href="/">Retour à la page d'accueil</a>
   </main>
 </body>
 
